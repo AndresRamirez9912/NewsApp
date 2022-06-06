@@ -14,8 +14,10 @@ export class Tab1Page implements OnInit {
   constructor(private newService: NewsService) {}
   ngOnInit() {
     this.newService.getNews().subscribe((articles) => {
-      console.log(articles);
       this.articles=articles; // Assign the data to my variable
     }); // Subscribe and print in console
+  }
+  scrollData(data:Article[]){
+    this.articles.push(...data);
   }
 }

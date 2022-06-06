@@ -1,0 +1,11 @@
+<ion-infinite-scroll
+  threshold="25%"
+  position="bottom"
+  (ionInfinite)="loadingData()"
+  >
+  <ion-infinite-scroll-content
+    loadingSpinner="bubbles"
+    loadingText="Loading more News..."
+  >
+  </ion-infinite-scroll-content>
+</ion-infinite-scroll>

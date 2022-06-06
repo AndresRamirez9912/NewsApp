@@ -1,8 +1,6 @@
 <ion-header [translucent]="true" class="ion-no-border" mode="ios">
   <ion-toolbar>
-    <ion-title>
-      Daily News
-    </ion-title>
+    <ion-title> Daily News </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -14,6 +12,5 @@
   </ion-header>
 
   <app-article-list [articles]="articles"></app-article-list>
-
+  <app-infinite (data)="scrollData($event)"></app-infinite>
 </ion-content>
-
