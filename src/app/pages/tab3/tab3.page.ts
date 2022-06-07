@@ -1,12 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Article } from 'src/app/interfaces/news.interface';
+import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
   selector: 'app-tab3',
   templateUrl: 'tab3.page.html',
   styleUrls: ['tab3.page.scss']
 })
-export class Tab3Page {
+export class Tab3Page implements OnInit{
 
-  constructor() {}
+  // Gets
+  get articles() : Article[]{
+    return this.storageService.getLoadArticles;
+  }
+  constructor(private storageService:StorageService) {}
 
+  ngOnInit(): void {
+
+  }
 }

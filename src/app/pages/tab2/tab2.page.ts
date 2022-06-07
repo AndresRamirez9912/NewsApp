@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { NewsService } from '../../services/news.service';
 import { Article } from '../../interfaces/news.interface';
 import { IonInfiniteScroll } from '@ionic/angular';
+import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
   selector: 'app-tab2',
@@ -19,7 +20,11 @@ export class Tab2Page implements OnInit {
   selectedCategory: string = this.categories[0];
   filteredByCategoryNews: Article[] = [];
 
-  constructor(private news: NewsService) {}
+
+  constructor(
+    private news: NewsService,
+    private storageService:StorageService
+  ) {}
 
   ngOnInit() {
     this.news.getCategories().subscribe((resp) => {

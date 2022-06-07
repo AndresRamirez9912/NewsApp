@@ -1,16 +1,25 @@
 <ion-card>
 
   <ion-card-header class="ion-padding-horizontal ion-margin-button">
-    <ion-card-subtitle class="article-source-name">{{article.source.name}}</ion-card-subtitle>
-    <ion-card-title >{{article.title}}</ion-card-title>
+    <ion-card-subtitle class="article-source-name">
+      <ion-row class="ion-align-items-center">
+        <ion-col >
+          <span>{{article.source.name}}</span>
+        </ion-col>
+
+        <ion-col align="right">
+          <ion-button fill="clear" (click)="openMenu()">
+            <ion-icon slot="icon-only" name="ellipsis-vertical"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-card-subtitle>
+    <ion-card-title (click)="openArticle()" >{{article.title}}</ion-card-title>
     <ion-card-subtitle>{{article.author}}</ion-card-subtitle>
   </ion-card-header>
 
   <ion-card-content *ngIf="article.description">
     <p>{{article.description}}</p>
-
-    <ion-img *ngIf="article.urlToImage" [src]="article.urlToImage"></ion-img>
+    <ion-img (click)="openArticle()" *ngIf="article.urlToImage" [src]="article.urlToImage"></ion-img>
   </ion-card-content>
-
-
 </ion-card>
